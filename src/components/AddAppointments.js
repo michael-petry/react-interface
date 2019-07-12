@@ -7,7 +7,7 @@ class AddAppointments extends Component {
         super();
         this.state = {
             petName : '',
-            petOwner : '',
+            ownerName : '',
             aptDate : '',
             aptTime : '',
             aptNotes : ''
@@ -30,19 +30,17 @@ class AddAppointments extends Component {
         e.preventDefault();
         let tempApt = {
             petName : this.state.petName,
-            petOwner : this.state.petOwner,
+            ownerName : this.state.ownerName,
             aptDate : this.state.aptDate + ' ' + this.state.aptTime,
             aptNotes : this.state.aptNotes
         }
-
-        console.dir(tempApt)
 
         this.props.addAppoinment(tempApt);
 
         this.setState({
           
             petName : '',
-            petOwner : '',
+            ownerName : '',
             aptDate : '',
             aptTime : '',
             aptNotes : ''
@@ -88,7 +86,7 @@ class AddAppointments extends Component {
             <div className="form-group form-row">
               <label
                 className="col-md-2 col-form-label text-md-right"
-                htmlFor="petOwner"
+                htmlFor="ownerName"
               >
                 Pet Owner
               </label>
@@ -96,9 +94,9 @@ class AddAppointments extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  name="petOwner"
+                  name="ownerName"
                   placeholder="Owner's Name"
-                  value={this.state.petOwner}
+                  value={this.state.ownerName}
                   onChange={this.handleChange}
                 />
               </div>
